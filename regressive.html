@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem Regressiva</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url(https://img1.picmix.com/output/stamp/normal/0/1/1/3/543110_29f12.gif);
+            background-position: fixed;
+            background-clip: border-box;
+        }
+
+        h1 {
+            
+            color: #333;
+        }
+
+        #countdown {
+            display: flex;
+            position: relative;
+            font-size: 1em;
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #fff;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        #heart {
+            font-size: 2em;
+            color: red;
+        }
+
+        .card {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 200px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contagem Regressiva até o nosso dia! 29 de Janeiro
+        <div id="heart">&#x2764;</div>
+        <div id="countdown"></div>
+    </h1>
+
+
+
+    <div class="card">
+        <img src="img-nos-1.jpg" alt="Imagem 1">
+        <h2>Eu te Amo</h2>
+    </div>
+
+    <div class="card">
+        <img src="img-nos-2.jpg" alt="Imagem 2">
+        <h2>A gente Sempre!</h2>
+    </div>
+
+    <div class="card">
+        <img src="img-nos-3.jpg" alt="Imagem 3">
+        <h2>Pra Tudo !</h2>
+    </div>
+
+    <script>
+        // Definir a data alvo (29 de janeiro)
+        const targetDate = new Date('2024-01-29T00:00:00Z').getTime();
+
+        // Atualizar a contagem regressiva a cada segundo
+        const countdown = setInterval(function () {
+            const currentDate = new Date().getTime();
+            const timeRemaining = targetDate - currentDate;
+
+            // Calcular dias, horas, minutos e segundos
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            // Exibir a contagem regressiva
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // Verificar se a data alvo foi atingida
+            if (timeRemaining < 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = 'A data chegou! Feliz 4 Anos Meu Amor !';
+            }
+        }, 1000); // Atualizar a cada segundo
+    </script>
+
+
+</body>
+
+</html>
