@@ -10,13 +10,14 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 50px;
-            background-image: url(https://img1.picmix.com/output/stamp/normal/0/1/1/3/543110_29f12.gif);
+            background-image: url(https://i.pinimg.com/originals/ce/4b/ba/ce4bba73fef3152f88d86c8e5ace08bc.gif);
+            background-repeat: no-repeat;
             background-position: fixed;
             background-clip: border-box;
         }
 
         h1 {
-            
+
             color: #333;
         }
 
@@ -59,18 +60,49 @@
             color: #333;
             margin-top: 10px;
         }
+
+        #quiz-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
 <body>
 
-    <h1>Contagem Regressiva até o nosso dia! 29 de Janeiro
-        <div id="heart">&#x2764;</div>
-        <div id="countdown"></div>
-    </h1>
 
-
-
+    
+    <div class="card">
+        <h2>Queria te dar um desses pessoalmente!</h2>
+        <img src="girassol-removebg-preview.png" alt="Imagem 4">
+        <h2>Pra você</h2>
+    </div>
     <div class="card">
         <img src="img-nos-1.jpg" alt="Imagem 1">
         <h2>Eu te Amo</h2>
@@ -86,7 +118,45 @@
         <h2>Pra Tudo !</h2>
     </div>
 
+
+    <div id="pergunta1">
+        <h2>Pergunta 1: Você está Feliz??</h2>
+        <label>
+            <input type="radio" name="cor" value="Sim"> Sim
+        </label>
+        <label>
+            <input type="radio" name="cor" value="Não"> Não
+        </label>
+        <button onclick="mostrarPergunta2()">Próxima Pergunta</button>
+    </div>
+
+    <div id="pergunta2" style="display: none;">
+        <h2>Pergunta 2: Manda foto do pepeto, pufavor!?</h2>
+        <label>
+            <input type="radio" name="animal" value="Sim"> Sim
+        </label>
+        <label>
+            <input type="radio" name="animal" value="NÃO"> Não
+        </label>
+        <label>
+            <input type="radio" name="animal" value="talvez"> talvez
+        </label>
+        <button onclick="exibirResultados()">Ver Resultados</button>
+    </div>
+
     <script>
+        function mostrarPergunta2() {
+            document.getElementById('pergunta1').style.display = 'none';
+            document.getElementById('pergunta2').style.display = 'block';
+        }
+
+        function exibirResultados() {
+            // Aqui você pode processar as respostas e exibir os resultados como desejado
+            var respostaPergunta1 = document.querySelector('input[name="cor"]:checked').value;
+            var respostaPergunta2 = document.querySelector('input[name="animal"]:checked').value;
+
+            alert('Resposta da Pergunta 1: ' + respostaPergunta1 + '\nResposta da Pergunta 2: ' + respostaPergunta2 + '\nTE AMOOOO!');
+        }
         // Definir a data alvo (29 de janeiro)
         const targetDate = new Date('2024-01-29T00:00:00Z').getTime();
 
